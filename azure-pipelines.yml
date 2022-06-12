@@ -17,6 +17,11 @@ stages:
       displayName: Build with make file
       steps:
       - script: make
+      
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: $(System.DefaultWorkingDirectory)/output
+          artifactName: HelloWorld
     
     - job:
       dependsOn: make
