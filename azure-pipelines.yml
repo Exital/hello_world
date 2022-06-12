@@ -31,7 +31,7 @@ stages:
         inputs:
           artifact: HelloWorld
       - script: pwd && ls
-      - script: $(Pipeline.Workspace)/HelloWorld
+      - script: $(Pipeline.Workspace)/../HelloWorld
   
   - stage: release
     displayName: Release
