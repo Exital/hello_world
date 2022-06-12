@@ -12,13 +12,14 @@ pool:
 stages:
   - stage: build
     displayName: Build
-    jobs:
-    - job:
+    jobs: 
+    - job: make
       displayName: Build with make file
       steps:
       - script: make
     
     - job:
+      dependsOn: make
       displayName: test output file
       steps:
       - script: ./output
