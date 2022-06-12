@@ -9,7 +9,25 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: |
-    make
-  displayName: 'make'
+stages:
+  - stage: build
+    displayName: Build
+    jobs:
+    - job:
+      displayName: Build with make file
+      steps:
+      - script: make
+    
+    - job:
+      displayName: test output file
+      steps:
+      - script: ./output
+  
+  - stage: release
+    displayName: Release
+    jobs:
+    - job:
+      steps:
+      - script: echo "releasing"
+
+
