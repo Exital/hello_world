@@ -31,13 +31,9 @@ stages:
         inputs:
           artifact: HelloWorld
       - script: |
-          - task: Bash@3
-          inputs:
-            targetType: 'inline'
-            script: |
-              # Write your commands here
-              chmod +x $(Pipeline.Workspace)/output
-              $(Pipeline.Workspace)/output
+          # Write your commands here
+          chmod +x $(Pipeline.Workspace)/output
+          $(Pipeline.Workspace)/output
 
 
   - stage: release
@@ -45,6 +41,8 @@ stages:
     jobs:
     - job:
       steps:
-      - script: echo "releasing"
+      - script: |
+          echo 'releasing'
+          echo 'nice release dude'
 
 
