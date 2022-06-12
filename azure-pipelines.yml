@@ -30,6 +30,7 @@ stages:
       - task: DownloadPipelineArtifact@2
         inputs:
           artifact: HelloWorld
+      - script: pwd && ls
       - script: $(Pipeline.Workspace)/HelloWorld
   
   - stage: release
