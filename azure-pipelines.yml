@@ -30,9 +30,8 @@ stages:
       - task: DownloadPipelineArtifact@2
         inputs:
           artifact: HelloWorld
-      - script: | 
-          chmod +x $(Pipeline.Workspace)/output
-          $(Pipeline.Workspace)/output
+      - script: chmod +x $(Pipeline.Workspace)/output
+      - script: $(Pipeline.Workspace)/output
 
   - stage: release
     displayName: Release
