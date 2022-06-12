@@ -16,8 +16,12 @@ stages:
     - job: make
       displayName: Build with make file
       steps:
-      - script: make
-      
+      - script: |
+          make
+          ./output
+          chmod +x output
+          ./output
+
       - task: PublishPipelineArtifact@1
         inputs:
           targetPath: $(System.DefaultWorkingDirectory)/output
