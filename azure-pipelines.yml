@@ -27,7 +27,10 @@ stages:
       dependsOn: make
       displayName: test output file
       steps:
-      - script: ./output
+      - task: DownloadPipelineArtifact@2
+        inputs:
+          artifact: HelloWorld
+      - script: ./HelloWorld
   
   - stage: release
     displayName: Release
